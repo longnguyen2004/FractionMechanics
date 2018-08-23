@@ -10,7 +10,7 @@ public:
 	Fraction(int x) : nume(x), denom(1) {};
 	Fraction() {};
 
-	std::string to_string()													// xuất
+	std::string to_string()									// xuất
 	{
 		std::string res = "";
 		res += std::to_string(nume);
@@ -19,7 +19,7 @@ public:
 		return res;
 	}
 
-	Fraction simplify()														// tối giản
+	Fraction simplify()									// tối giản
 	{
 		int i = GCD(nume, denom);
 		nume /= i;
@@ -27,7 +27,7 @@ public:
 		return Fraction(nume, denom);
 	}
 
-	Fraction inverse()														// nghịch đảo
+	Fraction inverse()									// nghịch đảo
 	{
 		return Fraction(denom, nume);
 	}
@@ -51,7 +51,7 @@ public:
 		frac2.denom = commondenom;
 	}
 
-	Fraction operator+ (Fraction frac2)										// cộng
+	Fraction operator+ (Fraction frac2)							// cộng
 	{
 		Fraction frac1 = *this;
 		convert(frac1, frac2);
@@ -60,7 +60,7 @@ public:
 		return Fraction(newnume, newdenom).simplify();
 	}
 
-	Fraction operator- (Fraction frac2)										// trừ
+	Fraction operator- (Fraction frac2)							// trừ
 	{
 		Fraction frac1 = *this;
 		convert(frac1, frac2);
@@ -69,54 +69,54 @@ public:
 		return Fraction(newnume, newdenom).simplify();
 	}
 
-	Fraction operator* (Fraction frac2)										// nhân
+	Fraction operator* (Fraction frac2)							// nhân
 	{
 		int newdenom = this->denom * frac2.denom;
 		int newnume = this->nume * frac2.nume;
 		return Fraction(newnume, newdenom).simplify();
 	}
 
-	Fraction operator/ (Fraction frac2)										// chia
+	Fraction operator/ (Fraction frac2)							// chia
 	{
 		return *this * frac2.inverse();
 	}
 	
-	bool operator== (Fraction frac2)										// so sánh ==
+	bool operator== (Fraction frac2)							// so sánh ==
 	{
 		Fraction frac1 = *this;
 		convert(frac1, frac2);
 		return frac1.nume == frac2.nume;
 	}
 
-	bool operator!= (Fraction frac2)										// so sánh !=
+	bool operator!= (Fraction frac2)							// so sánh !=
 	{
 		Fraction frac1 = *this;
 		convert(frac1, frac2);
 		return frac1.nume != frac2.nume;
 	}
 
-	bool operator< (Fraction frac2)											// so sánh <
+	bool operator< (Fraction frac2)								// so sánh <
 	{
 		Fraction frac1 = *this;
 		convert(frac1, frac2);
 		return frac1.nume < frac2.nume;
 	}
 
-	bool operator> (Fraction frac2)											// so sánh >
+	bool operator> (Fraction frac2)								// so sánh >
 	{
 		Fraction frac1 = *this;
 		convert(frac1, frac2);
 		return frac1.nume > frac2.nume;
 	}
 
-	bool operator>= (Fraction frac2)										// so sánh >=
+	bool operator>= (Fraction frac2)							// so sánh >=
 	{
 		Fraction frac1 = *this;
 		convert(frac1, frac2);
 		return frac1.nume >= frac2.nume;
 	}
 
-	bool operator<= (Fraction frac2)										// so sánh <=
+	bool operator<= (Fraction frac2)							// so sánh <=
 	{
 		Fraction frac1 = *this;
 		convert(frac1, frac2);
